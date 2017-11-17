@@ -56,10 +56,10 @@ public class Player : MonoBehaviour, ITakeDamage
 	{
         if (Input.GetKeyDown("space") && SpeedUp == 1F)
         {
-            SpeedUp = 300F;
+            SpeedUp = 150F;
         }
 
-        if (Input.GetKeyUp("space") && SpeedUp == 300F)
+        if (Input.GetKeyUp("space") && SpeedUp == 150F)
         {
             SpeedUp = 1F;
         }
