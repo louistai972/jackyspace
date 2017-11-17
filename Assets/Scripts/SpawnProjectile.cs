@@ -7,6 +7,7 @@ public class SpawnProjectile : MonoBehaviour {
 
     public Projectile ProjectilePrefab;
     private Rigidbody _rigidbody;
+    public int Ammo = 3;
 
 
     // Use this for initialization
@@ -20,15 +21,7 @@ public class SpawnProjectile : MonoBehaviour {
         _rigidbody = GetComponentInParent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            SpawnProjectiles();
-        }
-    }
-
-    private void SpawnProjectiles()
+    public void SpawnProjectiles()
     {
         Projectile projectile = (Projectile)Instantiate(ProjectilePrefab, transform.position, Quaternion.identity);
         Vector3 initialVelocity = _rigidbody.velocity;

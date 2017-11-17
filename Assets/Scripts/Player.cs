@@ -12,15 +12,21 @@ public class Player : MonoBehaviour, ITakeDamage
     public float SpeedUp = 1f;
     private float _currentSpeed;
 
+
+    public SpawnProjectile LeftSpawner;
+    public SpawnProjectile RightSpawner;
+
     public float StraffMaxSpeed = 100f;
     public float StraffTime = 0.1f;
 
     private Rigidbody _rigidbody;
     private float _smoothXVelocity;
 
-    private float _currentHealth = 1;
+    public float _currentHealth = 1;
 
     public Projectile ProjectilePrefab;
+    public int Ammo = 3;
+    public int Shield = 2;
 
     private void Awake()
     {
@@ -30,31 +36,30 @@ public class Player : MonoBehaviour, ITakeDamage
 
     private void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (Ammo <= 0)
+            {
+                return;
+            }
+            else
+            {
+                LeftSpawner.SpawnProjectiles();
+                RightSpawner.SpawnProjectiles();
+                Ammo--;
+            }
 
+        }
     }
-
-   /* private void Acceleration()
-    {
-        if (Input.GetKeyDown("space") && SpeedUp == 1F)
-        {
-            SpeedUp = 1.5F;
-        }
-
-        if (Input.GetKeyUp("space") && SpeedUp == 1.5F)
-        {
-            SpeedUp = 1F;
-        }
-    }*/
-
 
     private void FixedUpdate()
 	{
         if (Input.GetKeyDown("space") && SpeedUp == 1F)
         {
-            SpeedUp = 1.5F;
+            SpeedUp = 300F;
         }
 
-        if (Input.GetKeyUp("space") && SpeedUp == 1.5F)
+        if (Input.GetKeyUp("space") && SpeedUp == 300F)
         {
             SpeedUp = 1F;
         }
@@ -66,7 +71,7 @@ public class Player : MonoBehaviour, ITakeDamage
 			}
 			else 
 			{
-            _currentSpeed = newVelocity.z += ForwardAcceleration * SpeedUp * Time.fixedDeltaTime;
+            newVelocity.z += ForwardAcceleration * SpeedUp * Time.fixedDeltaTime;
 			}
 
 			float targetVelocity = Input.GetAxis("Horizontal") * StraffMaxSpeed;
@@ -83,23 +88,20 @@ public class Player : MonoBehaviour, ITakeDamage
 	}
 
     public void Kill()
-    {
-        _currentHealth--;
-
-        if ( _currentHealth == 0)
-        {
-            LevelManager.Instance.PlayerDeath();
-        }
+    { 
+     
+     LevelManager.Instance.PlayerDeath();
+        
     }
 
     public void TakeDamage(float damage, GameObject instigator)
     {
-    _currentHealth -= damage;
-        if(_currentHealth <- 0f)
+        _currentHealth -= damage;
+        Debug.Log(_currentHealth);
+        if (_currentHealth <= 0f)
         {
-        Kill();
+            Kill();
         }
 
     }
-
 }

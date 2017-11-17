@@ -28,8 +28,14 @@ public class Projectile : MonoBehaviour {
         if(damageable != null)
         {
             damageable.TakeDamage(Damage, this.gameObject);
+            Destroy(gameObject);
 
         }
+        
+    }
+
+    private void Update()
+    {
         
     }
 }
