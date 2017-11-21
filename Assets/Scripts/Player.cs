@@ -8,7 +8,7 @@ public class Player : MonoBehaviour, ITakeDamage
 {
 
     public float VitesseInit = 10f;
-    public float SpeedUp = 1f;
+    private float SpeedUp = 1f;
 
     public SpawnProjectile LeftSpawner;
     public SpawnProjectile RightSpawner;
@@ -51,24 +51,34 @@ public class Player : MonoBehaviour, ITakeDamage
     private void FixedUpdate()
     {
         Vector3 newVelocity = _rigidbody.velocity;
-            newVelocity.z += VitesseInit * SpeedUp * Time.fixedDeltaTime;
+        newVelocity.z = VitesseInit * SpeedUp;
 
-			float targetVelocity = Input.GetAxis("Horizontal") * StraffMaxSpeed;
+        if (Input.GetKeyDown("z") && SpeedUp == 1f)
+        {
+            SpeedUp = 1.5f;
+        }
+        if (Input.GetKeyUp("z") && SpeedUp == 1.5f)
+        {
+            SpeedUp = 1f;
+        }
+        if (Input.GetKeyDown("s") && SpeedUp == 1f)
+        {
+            SpeedUp = 0.5f;
+        }
+        if (Input.GetKeyUp("s") && SpeedUp == 0.5f)
+        {
+            SpeedUp = 1f;
+        }
+
+        float targetVelocity = Input.GetAxis("Horizontal") * StraffMaxSpeed;
 
 			newVelocity.x = Mathf.SmoothDamp(newVelocity.x,targetVelocity, ref _smoothXVelocity, StraffTime);
 
 
 			_rigidbody.velocity = newVelocity;
 
-        if (Input.GetKeyDown("space") && SpeedUp == 1F)
-        {
-            SpeedUp = 20f;
-        }
 
-        if (Input.GetKeyUp("space") && SpeedUp == 20f)
-        {
-            SpeedUp = 1F;
-        }
+        Debug.Log(newVelocity);
     }
 
 	private void LateUpdate()
