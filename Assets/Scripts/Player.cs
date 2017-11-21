@@ -7,11 +7,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour, ITakeDamage
 {
 
-    public float MaxSpeed = 100f;
-    private float ForwardAcceleration = 20f;
+    public float VitesseInit = 10f;
     public float SpeedUp = 1f;
-    private float _currentSpeed;
-
 
     public SpawnProjectile LeftSpawner;
     public SpawnProjectile RightSpawner;
@@ -26,7 +23,6 @@ public class Player : MonoBehaviour, ITakeDamage
 
     public Projectile ProjectilePrefab;
     public int Ammo = 3;
-    public int Shield = 2;
 
     private void Awake()
     {
@@ -53,26 +49,9 @@ public class Player : MonoBehaviour, ITakeDamage
     }
 
     private void FixedUpdate()
-	{
-        if (Input.GetKeyDown("space") && SpeedUp == 1F)
-        {
-            SpeedUp = 150F;
-        }
-
-        if (Input.GetKeyUp("space") && SpeedUp == 150F)
-        {
-            SpeedUp = 1F;
-        }
-
+    {
         Vector3 newVelocity = _rigidbody.velocity;
-		if(newVelocity.z > MaxSpeed)
-			{
-				newVelocity.z = MaxSpeed;
-			}
-			else 
-			{
-            newVelocity.z += ForwardAcceleration * SpeedUp * Time.fixedDeltaTime;
-			}
+            newVelocity.z += VitesseInit * SpeedUp * Time.fixedDeltaTime;
 
 			float targetVelocity = Input.GetAxis("Horizontal") * StraffMaxSpeed;
 
@@ -80,7 +59,17 @@ public class Player : MonoBehaviour, ITakeDamage
 
 
 			_rigidbody.velocity = newVelocity;
-	}
+
+        if (Input.GetKeyDown("space") && SpeedUp == 1F)
+        {
+            SpeedUp = 20f;
+        }
+
+        if (Input.GetKeyUp("space") && SpeedUp == 20f)
+        {
+            SpeedUp = 1F;
+        }
+    }
 
 	private void LateUpdate()
 	{
