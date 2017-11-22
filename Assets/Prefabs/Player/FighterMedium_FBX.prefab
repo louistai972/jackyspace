@@ -327,7 +327,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488514611746370}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.553177, y: 2.5, z: -738.3986}
+  m_LocalPosition: {x: -0.2905695, y: 2.76, z: -323.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4278727548518864}
@@ -953,13 +953,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce16dda2998e04140b2543e5e0fa0baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VitesseInit: 10
-  SpeedUp: 1
+  UiHandler: {fileID: 0}
+  VitesseInit: 50
   LeftSpawner: {fileID: 114788613579648224}
   RightSpawner: {fileID: 114761054005871856}
   StraffMaxSpeed: 100
   StraffTime: 0.1
-  _currentHealth: 3
+  MaxHealth: 3
+  CurrentHealth: 1
   ProjectilePrefab: {fileID: 0}
   Ammo: 3
 --- !u!124 &124291244459272146

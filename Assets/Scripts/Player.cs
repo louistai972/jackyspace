@@ -26,6 +26,9 @@ public class Player : MonoBehaviour, ITakeDamage
     public Projectile ProjectilePrefab;
     public int Ammo = 3;
 
+    public Animator _animatorG;
+    public Animator _animatorD;
+
     public int Score { get; private set; }
 
     private void Awake()
@@ -57,6 +60,16 @@ public class Player : MonoBehaviour, ITakeDamage
             }
 
         }
+
+        if (Input.GetButtonDown("q"))
+        {
+            _animatorG.SetTrigger("Gauche");
+        }
+
+        if (Input.GetButtonDown("d"))
+        {
+            _animatorD.SetTrigger("Droite");
+        }
     }
 
     private void FixedUpdate()
@@ -87,6 +100,8 @@ public class Player : MonoBehaviour, ITakeDamage
 
 
 			_rigidbody.velocity = newVelocity;
+
+
     }
 
 	private void LateUpdate()
