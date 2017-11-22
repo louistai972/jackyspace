@@ -1929,7 +1929,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35addcf72019434f9beaa1d4b11a42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 922836220}
+  timerText: {fileID: 1855975932}
+  stateText: {fileID: 2023974834}
+  endText: {fileID: 1739386213}
+  endLayout: {fileID: 289512207}
 --- !u!1 &1045908193
 GameObject:
   m_ObjectHideFlags: 0

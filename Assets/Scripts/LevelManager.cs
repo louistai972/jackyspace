@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour {
     private DateTime _startedTime;
     private float _startTime;
     private float _maxTime;
-    //
+    
     private void Awake()
 	{
 		Instance = this;
