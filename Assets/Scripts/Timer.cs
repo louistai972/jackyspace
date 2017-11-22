@@ -2,32 +2,95 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
 
-    public Text timerText;
-    private float startTime;
-    private bool finnished = false;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI stateText;
+    public TextMeshProUGUI endText;
+    public GameObject endLayout;
+
+    private float _startTime;
+    private float _maxTime;
+
+
 
     void Start()
     {
-        startTime = Time.time;
+        _startTime = Time.time;
     }
 
     void Update()
     {
-        if (finnished)
-            return;
-        float t = Time.time - startTime;
+        float t = Time.time - _startTime;
         string minutes = ((int)t / 60).ToString ();
         string seconds = (t % 60).ToString ("00");
         timerText.text = minutes+" : "+seconds;
     }
 
-    public void Finnish()
+    void OnTriggerEnter(Collider other)
     {
-        finnished = true;
-        timerText.color = Color.green;
+        endLayout.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            stateText.color = Color.green;
+            stateText.text = "VICTOIRE";
+            endText.color = Color.white;
+            endText.text = timerText.text;
+        }
     }
+
+
+    /*void EndLevel()
+    {
+        endLayout.SetActive(true);
+
+        if ( _maxTime == )
+        {
+
+            if (palierScore.Length > 0 && scoreToxic >= palierScore[0] && scoreToxic < palierScore[1])
+            {
+                mushBonus = bonusMushByPalier[0];
+                //levelChampiValue += bonusMushByPalier[0] ;
+            }
+            else if (palierScore.Length >= 1 && scoreToxic >= palierScore[1] && scoreToxic < palierScore[2])
+            {
+                //levelChampiValue += bonusMushByPalier[1] ;
+                mushBonus = bonusMushByPalier[1];
+                Debug.Log("Palier2");
+            }
+
+            if (GameManager.Instance() != null)
+            {
+                GameManager.Instance().ChampiBank(levelChampiValue + mushBonus);
+                LvlSucces();
+                pointAdded = true;
+            }
+
+        }
+
+        levelIsEnd = true;
+        EndText();
+        GameManager.Instance().SaveGame();
+
+    }
+
+    void EndText()
+    {
+        endLayout.SetActive(true);
+        if (scoreToxic < scoreNeed)
+        {
+            if (GameManager.Instance().ReturnLanguage())
+            {
+                stateText.color = Color.red;
+                stateText.text = "DEFEAT";
+                timeLeftText.text = "<b>No time left !</b>";
+                scoreEndText.text = "Score : " + "<b>" + scoreToxic.ToString("") + "</b>" + " / " + "<b>" + scoreNeed.ToString("") + "</b>";
+                mushGainText.text = "Mushroom gain : " + "<b>" + mushBonus + "</b>";
+            }
+        }
+    }*/
 }
