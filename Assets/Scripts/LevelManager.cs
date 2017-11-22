@@ -54,7 +54,13 @@ public class LevelManager : MonoBehaviour {
 
     public void PlayerDeath()
     {
-        ChangementCamera.Instance._currentCamera.transform.parent = null;
-        Destroy(Player.gameObject);
+        /*ChangementCamera.Instance._currentCamera.transform.parent = null;
+        Destroy(Player.gameObject);*/
+        endLayout.SetActive(true);
+        Time.timeScale = 0f;
+        stateText.text = "DEFAITE";
+        stateText.color = Color.red;
+        endText.text = timerText.text;
+        endText.color = Color.white;
     }
 }
