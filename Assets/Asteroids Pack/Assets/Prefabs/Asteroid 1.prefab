@@ -60,6 +60,11 @@ GameObject:
   - component: {fileID: 494976}
   - component: {fileID: 5444550}
   - component: {fileID: 11425652}
+  - component: {fileID: 114576685416944700}
+  - component: {fileID: 75938616574820560}
+  - component: {fileID: 114385873978701954}
+  - component: {fileID: 135856742367329668}
+  - component: {fileID: 135735601835353888}
   m_Layer: 0
   m_Name: Asteroid 1
   m_TagString: Enemy
@@ -146,8 +151,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.8, y: 6.1, z: -200.03}
+  m_LocalScale: {x: 4.5375285, y: 4.537527, z: 4.537527}
   m_Children:
   - {fileID: 488002}
   m_Father: {fileID: 0}
@@ -361,3 +366,63 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151664}
   m_IsPrefabParent: 1
+--- !u!75 &75938616574820560
+ConstantForce:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151664}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 50}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &114385873978701954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1234e8d9d4c2b9d42ab4f4b087f03a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damages: 1
+  MaxHelath: 1
+--- !u!114 &114576685416944700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cfb9b79fc14024a985e51e5f35e8e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHelath: 1
+--- !u!135 &135735601835353888
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.87659585
+  m_Center: {x: -0.020190971, y: 0, z: -0.0004990603}
+--- !u!135 &135856742367329668
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8705145
+  m_Center: {x: -0.028770832, y: -0.050092876, z: -0.020545017}

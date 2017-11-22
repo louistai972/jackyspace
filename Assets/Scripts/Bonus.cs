@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Animator))]
 public class Bonus : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    protected Animator _animator;
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,7 +22,10 @@ public class Bonus : MonoBehaviour {
             ApplyBonus(player);
         }
     }
-
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
     public virtual void ApplyBonus(Player player)
     {
 

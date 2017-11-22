@@ -10,7 +10,7 @@ public class AmmoBonus : Bonus
     public override void ApplyBonus (Player player)
     {
         player.Ammo += Amount;
-        Destroy(gameObject);
+        _animator.SetTrigger("PickUp");
     }
 
    

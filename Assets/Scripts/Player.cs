@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ITakeDamage
 {
+    public HUDHandler UiHandler;
 
     public float VitesseInit = 10f;
     private float SpeedUp = 1f;
@@ -19,17 +20,27 @@ public class Player : MonoBehaviour, ITakeDamage
     private Rigidbody _rigidbody;
     private float _smoothXVelocity;
 
-    public float _currentHealth = 1;
+    public float MaxHealth = 3f;
+    public float CurrentHealth;
 
     public Projectile ProjectilePrefab;
     public int Ammo = 3;
+
+    public int Score { get; private set; }
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         Assert.IsNotNull(_rigidbody);
+
+        //Assert.IsNotNull(UiHandler);
     }
 
+    private void Start()
+    {
+        CurrentHealth = MaxHealth;
+        Score = 0;
+    }
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -76,9 +87,6 @@ public class Player : MonoBehaviour, ITakeDamage
 
 
 			_rigidbody.velocity = newVelocity;
-
-
-        Debug.Log(newVelocity);
     }
 
 	private void LateUpdate()
@@ -95,12 +103,18 @@ public class Player : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float damage, GameObject instigator)
     {
-        _currentHealth -= damage;
-        Debug.Log(_currentHealth);
-        if (_currentHealth <= 0f)
+        CurrentHealth -= damage;
+        //UiHandler.TakeDamage();
+        Debug.Log(CurrentHealth);
+        if (CurrentHealth <= 0f)
         {
             Kill();
         }
 
+    }
+
+    public void AddScore(int scoreValue)
+    {
+        Score += scoreValue;
     }
 }

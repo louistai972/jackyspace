@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MineMalus : Bonus , ITakeDamage
+public class Damage : Bonus, ITakeDamage
 {
-    public float Damage = 10f;
+    public float Damages = 10f;
     public float MaxHelath = 100f;
 
     private float _currentHealth = 0f;
 
     public override void ApplyBonus(Player player)
     {
-        player.TakeDamage(Damage, gameObject);
-        _animator.SetTrigger("PickUp");
+        player.TakeDamage(Damages, gameObject);
+        Destroy(gameObject);
     }
 
 
@@ -22,9 +22,9 @@ public class MineMalus : Bonus , ITakeDamage
         _currentHealth = MaxHelath;
     }
 
-    public void TakeDamage(float damage, GameObject instigator)
+    public void TakeDamage(float damages, GameObject instigator)
     {
-        _currentHealth -= damage;
+        _currentHealth -= damages;
         if (_currentHealth <= 0f)
         {
             Kill();
