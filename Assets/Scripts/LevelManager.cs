@@ -41,7 +41,6 @@ public class LevelManager : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        endLayout.SetActive(true);
         if (other.CompareTag("Player"))
         {
             Time.timeScale = 0f;
@@ -50,17 +49,19 @@ public class LevelManager : MonoBehaviour {
             endText.text = timerText.text;
             endText.color = Color.white;
         }
+
+        endLayout.SetActive(true);
     }
 
     public void PlayerDeath()
     {
         //ChangementCamera.Instance._currentCamera.transform.parent = null;
         Destroy(Player.gameObject);
-        endLayout.SetActive(true);
         Time.timeScale = 0f;
         stateText.text = "DEFAITE";
         stateText.color = Color.red;
         endText.text = timerText.text;
         endText.color = Color.white;
+        endLayout.SetActive(true);
     }
 }

@@ -4,21 +4,27 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(Animator))]
-public class Bonus : MonoBehaviour {
+[RequireComponent(typeof(AudioSource))]
+public class Bonus : MonoBehaviour
+{
 
 
     protected Animator _animator;
+    protected AudioSource _audioSource;
 
     void Awake()
     {
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Player player = other.gameObject.GetComponentInParent<Player>();
-        if(player != null)
+        if (player != null)
         {
+            _audioSource.pitch = Random.Range(0.8f, 1.25f);
+            _audioSource.Play();
             ApplyBonus(player);
         }
     }
