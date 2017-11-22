@@ -8,9 +8,9 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
 
-    public TextMeshProUGUI timerText;
-    public TextMeshProUGUI stateText;
-    public TextMeshProUGUI endText;
+    public Text timerText;
+    public Text stateText;
+    public Text endText;
     public GameObject endLayout;
 
     private float _startTime;
@@ -26,9 +26,9 @@ public class Timer : MonoBehaviour
     void Update()
     {
         float t = Time.time - _startTime;
-        string minutes = ((int)t / 60).ToString ();
-        string seconds = (t % 60).ToString ("00");
-        timerText.text = minutes+" : "+seconds;
+        string minutes = ((int)t / 60).ToString();
+        string seconds = (t % 60).ToString("00");
+        timerText.text = minutes + " : " + seconds;
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,10 +36,10 @@ public class Timer : MonoBehaviour
         endLayout.SetActive(true);
         if (other.CompareTag("Player"))
         {
-            stateText.color = Color.green;
             stateText.text = "VICTOIRE";
-            endText.color = Color.white;
+            stateText.color = Color.green;
             endText.text = timerText.text;
+            endText.color = Color.white;
         }
     }
 
