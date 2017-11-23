@@ -8,6 +8,9 @@ public class Player : MonoBehaviour, ITakeDamage
 {
     public HUDHandler UiHandler;
 
+    public GameObject player;
+    private Vector3 offset;
+
     public float VitesseInit = 10f;
     private float SpeedUp = 1f;
 
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour, ITakeDamage
     {
         CurrentHealth = MaxHealth;
         Score = 0;
+        offset = transform.position - player.transform.position;
     }
     private void Update()
     {
@@ -77,11 +81,12 @@ public class Player : MonoBehaviour, ITakeDamage
         Vector3 newVelocity = _rigidbody.velocity;
         newVelocity.z = VitesseInit * SpeedUp;
 
-        if (Input.GetKeyDown("z") && SpeedUp == 1f)
+        if (Input.GetKeyDown("space") && SpeedUp == 1f)
         {
-            SpeedUp = 1.5f;
+            transform.position = player.transform.position + offset;
+            SpeedUp = 3f;
         }
-        if (Input.GetKeyUp("z") && SpeedUp == 1.5f)
+        if (Input.GetKeyUp("space") && SpeedUp == 3f)
         {
             SpeedUp = 1f;
         }
