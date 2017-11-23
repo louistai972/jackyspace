@@ -13,7 +13,7 @@ public class MineMalus : Bonus , ITakeDamage
     {
         Debug.Log("Mine");
         player.TakeDamage(Damage, gameObject);
-        _animator.SetTrigger("PickUp");
+       // _animator.SetTrigger("PickUp");
     }
 
 
