@@ -51,6 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4055524465323598}
   - component: {fileID: 114937302692211626}
+  - component: {fileID: 65329063291795362}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -65,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609362655659810}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1380}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4675913740792398}
@@ -99,6 +100,18 @@ Transform:
   m_Father: {fileID: 4675913740792398}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65329063291795362
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1609362655659810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 36.94079, y: 15.596899, z: 1}
+  m_Center: {x: 1.8400192, y: 7.2984495, z: 0}
 --- !u!82 &82830213848023908
 AudioSource:
   m_ObjectHideFlags: 1
@@ -109,7 +122,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243805591608734992, guid: f1803e666280c8e479b9bd1b0a773ecc,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 998ac8fcca1ec014a80cdec32a1ab7c3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9b870654099bc344585f8fbc0e13b2ae, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
