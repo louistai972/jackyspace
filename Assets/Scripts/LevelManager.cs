@@ -49,19 +49,20 @@ public class LevelManager : MonoBehaviour {
             endText.text = timerText.text;
             endText.color = Color.white;
         }
-
+        Debug.Log("Le enter");
         endLayout.SetActive(true);
     }
 
     public void PlayerDeath()
     {
-        //ChangementCamera.Instance._currentCamera.transform.parent = null;
+        ChangementCamera.Instance._currentCamera.transform.parent = null;
         Destroy(Player.gameObject);
         Time.timeScale = 0f;
         stateText.text = "DEFAITE";
         stateText.color = Color.red;
         endText.text = timerText.text;
         endText.color = Color.white;
+        Debug.Log(" Le death");
         endLayout.SetActive(true);
     }
 }

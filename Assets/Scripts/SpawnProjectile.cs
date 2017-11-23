@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
+using TMPro;
 
 public class SpawnProjectile : MonoBehaviour {
 
@@ -11,7 +13,8 @@ public class SpawnProjectile : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 		
 	}
 
