@@ -34,6 +34,9 @@ public class Player : MonoBehaviour, ITakeDamage
     public Projectile ProjectilePrefab;
     public int Ammo = 3;
 
+    public ParticleSystem Booster1;
+    public ParticleSystem Booster2;
+
     public Animator _animator;
 
     public int Score { get; private set; }
@@ -51,6 +54,9 @@ public class Player : MonoBehaviour, ITakeDamage
     {
         CurrentHealth = MaxHealth;
         Score = 0;
+        Booster1.Play();
+        Booster2.Play();
+
     }
     private void Update()
     {

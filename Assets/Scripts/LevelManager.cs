@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour {
 
     public void PlayerDeath()
     {
+        Debug.Log("Mort");
         ChangementCamera.Instance._currentCamera.transform.parent = null;
         Destroy(Player.gameObject);
         Time.timeScale = 0f;

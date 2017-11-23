@@ -6,8 +6,19 @@ public class MineMalus : Bonus , ITakeDamage
 {
     public float Damage = 10f;
     public float MaxHelath = 100f;
+    public ParticleSystem Boom;
 
     private float _currentHealth = 0f;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Player player = collision.gameObject.GetComponentInParent<Player>();
+        if(player)
+        {
+            ApplyBonus(player);
+            Destroy(this.gameObject);
+        }
+    }
 
     public override void ApplyBonus(Player player)
     {
@@ -35,6 +46,14 @@ public class MineMalus : Bonus , ITakeDamage
 
     public void Kill()
     {
-        Destroy(this.gameObject);
+        Boom.Play();
+        Debug.Log("Yatta");
+        StartCoroutine(DelayedDestroy());
+    }
+
+    IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }
