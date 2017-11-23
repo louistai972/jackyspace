@@ -103,12 +103,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4333692656357312}
-  - component: {fileID: 111640175562731262}
   - component: {fileID: 54613909036322514}
   - component: {fileID: 65495966027930760}
-  - component: {fileID: 114550616008895216}
   - component: {fileID: 114994060924926458}
   - component: {fileID: 108401149619296958}
+  - component: {fileID: 95109387692509550}
   m_Layer: 8
   m_Name: FighterMedium_FBX
   m_TagString: Player
@@ -809,6 +808,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356272110312128}
   m_Enabled: 1
+--- !u!95 &95109387692509550
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1488514611746370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d6de11fff7aae14296871ee9fa66735, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108401149619296958
 Light:
   m_ObjectHideFlags: 1
@@ -859,20 +875,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!111 &111640175562731262
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488514611746370}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 1
-  m_CullingType: 0
 --- !u!111 &111643812752761150
 Animation:
   m_ObjectHideFlags: 1
@@ -901,21 +903,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114550616008895216
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488514611746370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0ba9f1782b77d4d8ee65ba00523f4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraFPS: {fileID: 1598209373237906}
-  CameraTOP: {fileID: 1876806505940082}
-  CameraTPS: {fileID: 1356272110312128}
-  _currentCamera: {fileID: 1876806505940082}
 --- !u!114 &114761054005871856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -959,10 +946,15 @@ MonoBehaviour:
   RightSpawner: {fileID: 114761054005871856}
   StraffMaxSpeed: 100
   StraffTime: 0.1
+  CameraFPS: {fileID: 1598209373237906}
+  CameraTOP: {fileID: 1876806505940082}
+  CameraTPS: {fileID: 1356272110312128}
+  _currentCamera: {fileID: 1876806505940082}
   MaxHealth: 3
-  CurrentHealth: 1
+  CurrentHealth: 3
   ProjectilePrefab: {fileID: 0}
   Ammo: 3
+  _animator: {fileID: 95109387692509550}
 --- !u!124 &124291244459272146
 Behaviour:
   m_ObjectHideFlags: 1
