@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 
-public class HUDHandler : MonoBehaviour
+public class HUDhander : MonoBehaviour
 {
 
 

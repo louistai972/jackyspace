@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ITakeDamage
 {
-    public HUDHandler UiHandler;
-
-    public GameObject player;
-    private Vector3 offset;
+    public HUDhander UiHandler;
 
     public float VitesseInit = 10f;
     private float SpeedUp = 1f;
@@ -46,7 +43,6 @@ public class Player : MonoBehaviour, ITakeDamage
     {
         CurrentHealth = MaxHealth;
         Score = 0;
-        offset = transform.position - player.transform.position;
     }
     private void Update()
     {
@@ -83,7 +79,6 @@ public class Player : MonoBehaviour, ITakeDamage
 
         if (Input.GetKeyDown("space") && SpeedUp == 1f)
         {
-            transform.position = player.transform.position + offset;
             SpeedUp = 3f;
         }
         if (Input.GetKeyUp("space") && SpeedUp == 3f)
