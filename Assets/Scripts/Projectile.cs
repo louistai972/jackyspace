@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Projectile : MonoBehaviour {
+public class Projectile : MonoBehaviour
+
+{
 
 
     public float Damage = 1f;

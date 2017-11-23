@@ -5,7 +5,8 @@ using UnityEngine;
 public class DestructibleObstacle : MonoBehaviour, ITakeDamage
 {
     public float MaxHelath = 100f;
-    public ParticleSystem Boom;
+    public GameObject Boom;
+    public Explosion ExplosionScript;
 
     private float _currentHealth = 0f;
 
@@ -15,9 +16,9 @@ public class DestructibleObstacle : MonoBehaviour, ITakeDamage
         _currentHealth = MaxHelath;
 	}
 
-    public void Explosions()
+    public void Explosion()
     {
-        Instantiate(Boom, transform.position, transform.rotation);
+        //Boom.GetComponent<Explosions>();
     }
 
     public void TakeDamage(float damage, GameObject instigator)
@@ -25,6 +26,7 @@ public class DestructibleObstacle : MonoBehaviour, ITakeDamage
         _currentHealth -= damage;
         if (_currentHealth <= 0f)
         {
+            Explosion();
             Kill();
         }
 
@@ -32,6 +34,14 @@ public class DestructibleObstacle : MonoBehaviour, ITakeDamage
 
     public void Kill()
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        ExplosionScript.Explosions();
+        StartCoroutine(DelayedDestroy());
+    }
+
+    IEnumerator DelayedDestroy()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }

@@ -20,14 +20,21 @@ public class Player : MonoBehaviour, ITakeDamage
     private Rigidbody _rigidbody;
     private float _smoothXVelocity;
 
+    public static ChangementCamera Instance { get; private set; }
+
+    public GameObject CameraFPS;
+    public GameObject CameraTOP;
+    public GameObject CameraTPS;
+    private int activeCamera = 0;
+    public GameObject _currentCamera;
+
     public float MaxHealth = 3f;
     public float CurrentHealth;
 
     public Projectile ProjectilePrefab;
     public int Ammo = 3;
 
-    public Animator _animatorG;
-    public Animator _animatorD;
+    public Animator _animator;
 
     public int Score { get; private set; }
 
@@ -35,6 +42,7 @@ public class Player : MonoBehaviour, ITakeDamage
     {
         _rigidbody = GetComponent<Rigidbody>();
         Assert.IsNotNull(_rigidbody);
+        _currentCamera = CameraTOP;
 
         //Assert.IsNotNull(UiHandler);
     }
@@ -61,14 +69,14 @@ public class Player : MonoBehaviour, ITakeDamage
 
         }
 
-        if (Input.GetButtonDown("q"))
+        if (Input.GetKeyDown("q"))
         {
-            _animatorG.SetTrigger("Gauche");
+            _animator.SetTrigger("Gauche");
         }
 
-        if (Input.GetButtonDown("d"))
+        if (Input.GetKeyDown("d"))
         {
-            _animatorD.SetTrigger("Droite");
+            _animator.SetTrigger("Droite");
         }
     }
 
@@ -79,6 +87,7 @@ public class Player : MonoBehaviour, ITakeDamage
 
         if (Input.GetKeyDown("space") && SpeedUp == 1f)
         {
+            //_currentCamera.transform.position.new Vector3(0f, 0f, -3f);
             SpeedUp = 3f;
         }
         if (Input.GetKeyUp("space") && SpeedUp == 3f)
@@ -104,7 +113,44 @@ public class Player : MonoBehaviour, ITakeDamage
 
     }
 
-	private void LateUpdate()
+    void ChangeCamera()
+    {
+        if (Input.GetKeyDown("c"))
+        {
+            if (activeCamera == 0)
+            {
+
+                CameraTOP.SetActive(false);
+                CameraTPS.SetActive(true);
+                activeCamera += 1;
+                _currentCamera = CameraTPS;
+                return;
+
+            }
+            if (activeCamera == 1)
+            {
+
+                CameraTPS.SetActive(false);
+                CameraFPS.SetActive(true);
+                activeCamera += 1;
+                _currentCamera = CameraFPS;
+                return;
+
+            }
+            if (activeCamera == 2)
+            {
+
+                CameraFPS.SetActive(false);
+                CameraTOP.SetActive(true);
+                activeCamera = 0;
+                _currentCamera = CameraTOP;
+                return;
+
+            }
+        }
+    }
+
+    private void LateUpdate()
 	{
 		
 	}

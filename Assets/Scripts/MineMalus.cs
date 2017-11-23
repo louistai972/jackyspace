@@ -11,6 +11,7 @@ public class MineMalus : Bonus , ITakeDamage
 
     public override void ApplyBonus(Player player)
     {
+        Debug.Log("Mine");
         player.TakeDamage(Damage, gameObject);
         _animator.SetTrigger("PickUp");
     }
