@@ -94,12 +94,12 @@ public class Player : MonoBehaviour, ITakeDamage
         Vector3 newVelocity = _rigidbody.velocity;
         newVelocity.z = VitesseInit * SpeedUp;
 
-        if (Input.GetKeyDown("space") && SpeedUp == 1f)
+        if (Input.GetKeyDown("z") && SpeedUp == 1f)
         {
             //_currentCamera.transform.position.new Vector3(0f, 0f, -3f);
             SpeedUp = 3f;
         }
-        if (Input.GetKeyUp("space") && SpeedUp == 3f)
+        if (Input.GetKeyUp("z") && SpeedUp == 3f)
         {
             SpeedUp = 1f;
         }

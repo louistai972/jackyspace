@@ -802,11 +802,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 54846063779131462, guid: c37255375410c5141baf2cbbad0553f0,
-        type: 2}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c37255375410c5141baf2cbbad0553f0, type: 2}
   m_IsPrefabParent: 0
@@ -4856,62 +4851,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 114788613579648224, guid: dae42a16ea616104dacede05fb615089,
-        type: 2}
-      propertyPath: ProjectilePrefab
-      value: 
-      objectReference: {fileID: 1725440095}
     - target: {fileID: 114761054005871856, guid: dae42a16ea616104dacede05fb615089,
         type: 2}
       propertyPath: ProjectilePrefab
       value: 
       objectReference: {fileID: 1725440095}
-    - target: {fileID: 114994060924926458, guid: dae42a16ea616104dacede05fb615089,
+    - target: {fileID: 114788613579648224, guid: dae42a16ea616104dacede05fb615089,
         type: 2}
       propertyPath: ProjectilePrefab
       value: 
       objectReference: {fileID: 1725440095}
     - target: {fileID: 114994060924926458, guid: dae42a16ea616104dacede05fb615089,
         type: 2}
-      propertyPath: CurrentHealth
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114994060924926458, guid: dae42a16ea616104dacede05fb615089,
-        type: 2}
-      propertyPath: CameraFPS
+      propertyPath: ProjectilePrefab
       value: 
-      objectReference: {fileID: 1892881567}
-    - target: {fileID: 114994060924926458, guid: dae42a16ea616104dacede05fb615089,
-        type: 2}
-      propertyPath: CameraTOP
-      value: 
-      objectReference: {fileID: 1741767541}
-    - target: {fileID: 114994060924926458, guid: dae42a16ea616104dacede05fb615089,
-        type: 2}
-      propertyPath: CameraTPS
-      value: 
-      objectReference: {fileID: 545378957}
-    - target: {fileID: 114994060924926458, guid: dae42a16ea616104dacede05fb615089,
-        type: 2}
-      propertyPath: _currentCamera
-      value: 
-      objectReference: {fileID: 1741767541}
-    - target: {fileID: 1356272110312128, guid: dae42a16ea616104dacede05fb615089, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1876806505940082, guid: dae42a16ea616104dacede05fb615089, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114994060924926458, guid: dae42a16ea616104dacede05fb615089,
-        type: 2}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 2022028792}
-    m_RemovedComponents:
-    - {fileID: 114550616008895216, guid: dae42a16ea616104dacede05fb615089, type: 2}
-    - {fileID: 111640175562731262, guid: dae42a16ea616104dacede05fb615089, type: 2}
+      objectReference: {fileID: 1725440095}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dae42a16ea616104dacede05fb615089, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1581177322
@@ -4967,11 +4922,6 @@ Prefab:
     - target: {fileID: 4211445111609088, guid: b203c58d38220b9488e96744b963664d, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 54035359262897010, guid: b203c58d38220b9488e96744b963664d,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b203c58d38220b9488e96744b963664d, type: 2}
@@ -6856,28 +6806,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1731ae0548ad2ba458c572ab6df7b58c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2022028790 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1488514611746370, guid: dae42a16ea616104dacede05fb615089,
-    type: 2}
-  m_PrefabInternal: {fileID: 1520199321}
---- !u!95 &2022028792
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2022028790}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9d6de11fff7aae14296871ee9fa66735, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2028273712
 GameObject:
   m_ObjectHideFlags: 0
