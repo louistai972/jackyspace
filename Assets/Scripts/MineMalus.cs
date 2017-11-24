@@ -7,7 +7,7 @@ public class MineMalus : Bonus , ITakeDamage
     public float Damage = 10f;
     public float MaxHelath = 100f;
     public ParticleSystem Boom;
-    private float Delai = 0.3f;
+    public float Delai = 0.3f;
 
     private float _currentHealth = 0f;
 

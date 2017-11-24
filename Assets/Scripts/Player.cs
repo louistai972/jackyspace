@@ -8,6 +8,9 @@ public class Player : MonoBehaviour, ITakeDamage
 {
     public HUDhander UiHandler;
 
+    public GameObject vie1;
+    public GameObject vie2;
+    public GameObject vie3;
     public float VitesseInit = 10f;
     private float SpeedUp = 1f;
 
@@ -162,37 +165,34 @@ public class Player : MonoBehaviour, ITakeDamage
 	}
 
     public void Kill()
-    {
-
-     CameraTPS.transform.parent = null;
+    { 
+     
      LevelManager.Instance.PlayerDeath();
-     CameraTPS.SetActive(true);
-     CameraTOP.SetActive(false);
-     CameraFPS.SetActive(false);
-
+        
     }
 
     public void TakeDamage(float damage, GameObject instigator)
     {
         CurrentHealth -= damage;
-       /* if (CurrentHealth == 3)
-        {
-
-        }
 
         if (CurrentHealth == 2)
         {
+            vie3.SetActive(false);
 
         }
 
         if (CurrentHealth == 1)
         {
-
-        }*/
+            vie3.SetActive(false);
+            vie2.SetActive(false);
+        }
         //UiHandler.TakeDamage();
         Debug.Log(CurrentHealth);
         if (CurrentHealth <= 0f)
         {
+            vie3.SetActive(false);
+            vie2.SetActive(false);
+            vie1.SetActive(false);
             Kill();
         }
 

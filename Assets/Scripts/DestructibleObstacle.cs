@@ -6,7 +6,7 @@ public class DestructibleObstacle : MonoBehaviour, ITakeDamage
 {
     public float MaxHelath = 100f;
     public ParticleSystem Boom;
-    private float Delai = 0.5f;
+    public float Delai = 0.5f;
 
     private float _currentHealth = 0f;
 
