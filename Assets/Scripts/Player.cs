@@ -162,10 +162,14 @@ public class Player : MonoBehaviour, ITakeDamage
 	}
 
     public void Kill()
-    { 
-     
+    {
+
+     CameraTPS.transform.parent = null;
      LevelManager.Instance.PlayerDeath();
-        
+     CameraTPS.SetActive(true);
+     CameraTOP.SetActive(false);
+     CameraFPS.SetActive(false);
+
     }
 
     public void TakeDamage(float damage, GameObject instigator)

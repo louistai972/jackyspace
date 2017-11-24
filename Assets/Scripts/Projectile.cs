@@ -36,6 +36,16 @@ public class Projectile : MonoBehaviour
         
     }
 
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        Player player = collision.gameObject.GetComponentInParent<Player>();
+        if (player)
+        {
+            ApplyBonus(player);
+            Destroy(this.gameObject);
+        }
+    }*/
+
     private void Update()
     {
         
