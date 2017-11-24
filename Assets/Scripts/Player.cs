@@ -175,6 +175,20 @@ public class Player : MonoBehaviour, ITakeDamage
     public void TakeDamage(float damage, GameObject instigator)
     {
         CurrentHealth -= damage;
+       /* if (CurrentHealth == 3)
+        {
+
+        }
+
+        if (CurrentHealth == 2)
+        {
+
+        }
+
+        if (CurrentHealth == 1)
+        {
+
+        }*/
         //UiHandler.TakeDamage();
         Debug.Log(CurrentHealth);
         if (CurrentHealth <= 0f)

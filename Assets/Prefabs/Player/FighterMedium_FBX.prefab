@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 65495966027930760}
   - component: {fileID: 114994060924926458}
   - component: {fileID: 108401149619296958}
-  - component: {fileID: 95239083266176370}
+  - component: {fileID: 95379476072225500}
   m_Layer: 8
   m_Name: FighterMedium_FBX
   m_TagString: Player
@@ -961,7 +961,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356272110312128}
   m_Enabled: 1
---- !u!95 &95239083266176370
+--- !u!95 &95379476072225500
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   Ammo: 3
   Booster1: {fileID: 198634515037803182}
   Booster2: {fileID: 198494824019424096}
-  _animator: {fileID: 95239083266176370}
+  _animator: {fileID: 95379476072225500}
 --- !u!124 &124291244459272146
 Behaviour:
   m_ObjectHideFlags: 1
