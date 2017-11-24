@@ -6365,13 +6365,14 @@ MonoBehaviour:
   CameraFPS: {fileID: 1713020253}
   CameraTOP: {fileID: 1713020252}
   CameraTPS: {fileID: 1713020251}
-  _currentCamera: {fileID: 1713020252}
+  _currentCamera: {fileID: 1713020251}
   MaxHealth: 3
   CurrentHealth: 3
   ProjectilePrefab: {fileID: 2076096561}
   Ammo: 3
   Booster1: {fileID: 31516450}
   Booster2: {fileID: 932414716}
+  textAmmo: {fileID: 344159419}
   _animator: {fileID: 1013081811}
 --- !u!82 &299765026
 AudioSource:
@@ -19113,7 +19114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1713020252
 GameObject:
   m_ObjectHideFlags: 0

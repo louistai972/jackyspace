@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour, ITakeDamage
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour, ITakeDamage
     public GameObject CameraFPS;
     public GameObject CameraTOP;
     public GameObject CameraTPS;
-    private int activeCamera = 0;
+    private int activeCamera = 1;
     public GameObject _currentCamera;
 
     public float MaxHealth = 3f;
@@ -44,6 +45,8 @@ public class Player : MonoBehaviour, ITakeDamage
     public ParticleSystem Booster1;
     public ParticleSystem Booster2;
 
+    public Text textAmmo;
+
     public Animator _animator;
 
     public int Score { get; private set; }
@@ -52,8 +55,9 @@ public class Player : MonoBehaviour, ITakeDamage
     {
         _rigidbody = GetComponent<Rigidbody>();
         Assert.IsNotNull(_rigidbody);
-        _currentCamera = CameraTOP;
         _audioSource = GetComponent<AudioSource>();
+        _currentCamera = CameraTPS;
+        _currentCamera.SetActive(true);
 
         //Assert.IsNotNull(UiHandler);
     }
@@ -82,7 +86,9 @@ public class Player : MonoBehaviour, ITakeDamage
                 RightSpawner.SpawnProjectiles();
                 Ammo--;
             }
-
+            
+            textAmmo.text = Ammo.ToString();
+            textAmmo.color = Color.white;  
         }
 
         if (Input.GetKeyDown("q"))
@@ -136,8 +142,8 @@ public class Player : MonoBehaviour, ITakeDamage
             if (activeCamera == 0)
             {
 
-                CameraTOP.SetActive(false);
-                CameraTPS.SetActive(true);
+                CameraTPS.SetActive(false);
+                CameraTOP.SetActive(true);
                 activeCamera += 1;
                 _currentCamera = CameraTPS;
                 return;
@@ -146,10 +152,10 @@ public class Player : MonoBehaviour, ITakeDamage
             if (activeCamera == 1)
             {
 
-                CameraTPS.SetActive(false);
+                CameraTOP.SetActive(false);
                 CameraFPS.SetActive(true);
                 activeCamera += 1;
-                _currentCamera = CameraFPS;
+                _currentCamera = CameraTOP;
                 return;
 
             }
@@ -159,7 +165,7 @@ public class Player : MonoBehaviour, ITakeDamage
                 CameraFPS.SetActive(false);
                 CameraTOP.SetActive(true);
                 activeCamera = 0;
-                _currentCamera = CameraTOP;
+                _currentCamera = CameraFPS;
                 return;
 
             }

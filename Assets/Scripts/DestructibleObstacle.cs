@@ -36,12 +36,11 @@ public class DestructibleObstacle : MonoBehaviour, ITakeDamage
 
     public void Kill()
     {
+        _audioSource.pitch = Random.Range(0.8f, 1.25f);
+        _audioSource.Play();
         Boom.Play();
         Debug.Log("Yatta");
         StartCoroutine(DelayedDestroy());
-        
-        _audioSource.pitch = Random.Range(0.8f, 1.25f);
-        _audioSource.Play();
     }
 
     IEnumerator DelayedDestroy()

@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour {
         stateText.text = "DEFAITE";
         stateText.color = Color.red;
         endText.text = timerText.text;
-        endText.color = Color.white;    
+        endText.color = Color.white;
         endLayout.SetActive(true);
     }
 }
