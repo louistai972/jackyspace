@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour, ITakeDamage
 {
+
+    protected AudioSource _audioSource;
+
     public HUDhander UiHandler;
 
     public GameObject vie1;
@@ -49,6 +53,7 @@ public class Player : MonoBehaviour, ITakeDamage
         _rigidbody = GetComponent<Rigidbody>();
         Assert.IsNotNull(_rigidbody);
         _currentCamera = CameraTOP;
+        _audioSource = GetComponent<AudioSource>();
 
         //Assert.IsNotNull(UiHandler);
     }
@@ -71,6 +76,8 @@ public class Player : MonoBehaviour, ITakeDamage
             }
             else
             {
+                _audioSource.pitch = Random.Range(0.8f, 1.25f);
+                _audioSource.Play();
                 LeftSpawner.SpawnProjectiles();
                 RightSpawner.SpawnProjectiles();
                 Ammo--;
@@ -92,14 +99,13 @@ public class Player : MonoBehaviour, ITakeDamage
     private void FixedUpdate()
     {
         Vector3 newVelocity = _rigidbody.velocity;
-        newVelocity.z = VitesseInit * SpeedUp;
 
         if (Input.GetKeyDown("z") && SpeedUp == 1f)
         {
             //_currentCamera.transform.position.new Vector3(0f, 0f, -3f);
-            SpeedUp = 3f;
+            SpeedUp = 2f;
         }
-        if (Input.GetKeyUp("z") && SpeedUp == 3f)
+        if (Input.GetKeyUp("z") && SpeedUp == 2f)
         {
             SpeedUp = 1f;
         }
@@ -112,6 +118,7 @@ public class Player : MonoBehaviour, ITakeDamage
             SpeedUp = 1f;
         }
 
+		newVelocity.z = VitesseInit * SpeedUp;
         float targetVelocity = Input.GetAxis("Horizontal") * StraffMaxSpeed;
 
 			newVelocity.x = Mathf.SmoothDamp(newVelocity.x,targetVelocity, ref _smoothXVelocity, StraffTime);
@@ -167,8 +174,10 @@ public class Player : MonoBehaviour, ITakeDamage
     public void Kill()
     { 
      
-     LevelManager.Instance.PlayerDeath();
-        
+   	ChangementCamera.Instance._currentCamera.transform.parent = null;
+    LevelManager.Instance.PlayerDeath();
+    /*CameraFPS.SetActive(false);
+    CameraTOP.SetActive(false);*/
     }
 
     public void TakeDamage(float damage, GameObject instigator)
