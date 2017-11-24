@@ -27,24 +27,18 @@ public class Projectile : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         ITakeDamage damageable = collision.gameObject.GetComponentInParent<ITakeDamage>();
-        if(damageable != null)
+        if (damageable != null)
         {
             damageable.TakeDamage(Damage, this.gameObject);
             Destroy(gameObject);
 
         }
-        
-    }
-
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        Player player = collision.gameObject.GetComponentInParent<Player>();
-        if (player)
+        Transform other = collision.gameObject.GetComponent<Transform>();
+        if (other)
         {
-            ApplyBonus(player);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-    }*/
+    }
 
     private void Update()
     {

@@ -6,6 +6,7 @@ public class DestructibleObstacle : MonoBehaviour, ITakeDamage
 {
     public float MaxHelath = 100f;
     public ParticleSystem Boom;
+    private float Delai = 0.5f;
 
     private float _currentHealth = 0f;
 
@@ -34,7 +35,7 @@ public class DestructibleObstacle : MonoBehaviour, ITakeDamage
 
     IEnumerator DelayedDestroy()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(Delai);
         Destroy(gameObject);
     }
 }
